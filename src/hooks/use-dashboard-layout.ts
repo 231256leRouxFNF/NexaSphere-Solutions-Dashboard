@@ -23,17 +23,13 @@ export function useDashboardLayout() {
     setLayout(newLayout);
   };
 
-  const saveLayout = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(layout));
-  };
-
   const resetLayout = () => {
     setLayout(defaultLayout);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultLayout));
   };
 
   useEffect(() => {
-    saveLayout();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(layout));
   }, [layout]);
 
   return {
